@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
 import {Script, console2} from "forge-std/Script.sol";
@@ -10,7 +10,7 @@ contract GovernanceTokenScript is Script {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         vm.startBroadcast(deployerPrivateKey);
 
-        GovernanceToken governanceToken = new GovernanceToken(300);
+        GovernanceToken governanceToken = new GovernanceToken(900);
         console2.log("Governance Token deployed at:", address(governanceToken));
 
         vm.stopBroadcast();

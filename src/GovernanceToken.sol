@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+// Verified on Sepolia: https://sepolia.etherscan.io/address/ 0xdDF4861863F6Be4d168F5Fd42D3f7fd8642bc097
 pragma solidity ^0.8.30;
 
 import {ERC20} from "openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
@@ -26,6 +27,11 @@ contract GovernanceToken is ERC20, ERC20Burnable, Ownable {
     function burnToken(uint256 _amount) public {
         _burn(msg.sender, _amount * (10 ** decimals()));
         emit TokensBurned(msg.sender, _amount);
+    }
+
+    function transfer(address to, uint256 amount) public override returns (bool) {
+        require(balanceOf(msg.sender) >= 50 * 10**decimals(), "You must hold at least 100 GOV tokens to transfer.");
+        return super.transfer(to, amount);
     }
 
 }

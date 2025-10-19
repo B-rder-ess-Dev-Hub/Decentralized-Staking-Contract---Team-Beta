@@ -1,66 +1,25 @@
+# Governance Token (GOV)
 
-# Foundry
+An ERC20 Governance Token built using OpenZeppelin.
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Features
 
-Foundry consists of:
+- Minting (onlyOwner)
+- Burning (any holder)
+- Transfer, Approve, Allowance (ERC20 standard)
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Deployment Info
 
-## Documentation
+- Network: Sepolia Testnet
+- Contract Address: 0xdDF4861863F6Be4d168F5Fd42D3f7fd8642bc097
+- Verified on: [Sepolia Etherscan](https://sepolia.etherscan.io/address/0xdDF4861863F6Be4d168F5Fd42D3f7fd8642bc097)
 
-<https://book.getfoundry.sh/>
+## Commands
 
-## Usage
-
-### Build
-
-```shell
+```bash
 forge build
-```
+forge test --vv
+forge create src/GovernanceToken.sol:GovernanceToken --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY
+forge script script/GovernanceTokenScript.s.sol --rpc-url $SEPOLIA_RPC_URL--broadcast --verify
+forge flatten src/GovernanceToken.sol > FlattenedGOV.sol
 
-### Test
-
-```shell
-forge test
-```
-
-### Format
-
-```shell
-forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-forge snapshot
-```
-
-### Anvil
-
-```shell
-anvil
-```
-
-### Deploy
-
-```shell
-forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-cast <subcommand>
-```
-
-### Help
-
-```shell
-forge --help
-anvil --help
-cast --help
