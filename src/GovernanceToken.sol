@@ -6,7 +6,6 @@ import { ERC20Burnable } from "openzeppelin-contracts/contracts/token/ERC20/exte
 import {Ownable} from "openzeppelin-contracts/contracts/access/Ownable.sol";
 
 contract GovernanceToken is ERC20, ERC20Burnable, Ownable {
-    using GovernanceTokenLibrary for address;
 
     event TokensMinted(address indexed to, uint256 amount);
     event TokensBurned(address indexed from, uint256 amount);
@@ -32,7 +31,7 @@ contract GovernanceToken is ERC20, ERC20Burnable, Ownable {
     function _transfer(address from, address to, uint256 value) internal override{
         require(balanceOf(from) > 20, "You must have a minimum of 20 GOV tokens to transfer");
 
-        super._transfer(from, to, value)
+        super._transfer(from, to, value);
     }
 }
 
