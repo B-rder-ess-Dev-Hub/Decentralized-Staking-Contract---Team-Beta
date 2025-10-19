@@ -1,3 +1,4 @@
+
 # Governance Token (GOV)
 
 An ERC20 Governance Token built using OpenZeppelin.
@@ -22,4 +23,3 @@ forge test --vv
 forge create src/GovernanceToken.sol:GovernanceToken --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY
 forge script script/GovernanceTokenScript.s.sol --rpc-url $SEPOLIA_RPC_URL--broadcast --verify
 forge flatten src/GovernanceToken.sol > FlattenedGOV.sol
-
