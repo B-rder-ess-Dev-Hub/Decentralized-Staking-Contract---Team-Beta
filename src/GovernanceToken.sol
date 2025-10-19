@@ -28,10 +28,5 @@ contract GovernanceToken is ERC20, ERC20Burnable, Ownable {
         emit TokensBurned(msg.sender, _amount);
     }
 
-    function _transfer(address from, address to, uint256 value) internal override{
-        require(balanceOf(from) > 20, "You must have a minimum of 20 GOV tokens to transfer");
-
-        super._transfer(from, to, value);
-    }
 }
 
